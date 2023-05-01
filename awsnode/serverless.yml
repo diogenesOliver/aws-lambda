@@ -3,11 +3,11 @@ frameworkVersion: '3'
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs18.x
   region: us-east-1
   memorySize: 256
   iamRoleStatements:
-    - Effetc: Allow
+    - Effect: Allow
       Action:
         - s3:GetObject
         - s3:PutObject
@@ -15,20 +15,20 @@ provider:
         - "arn:aws:s3:::*"
 
 functions:
-  hello:
-    handler: handler.hello
+  optimize:
+    handler: handler.handle
     environment:
-      bucket: serverless
+      bucket: awsnode-iac-develop
     events:
       - s3:
-          bucket: serverless
+          bucket: awsnode-iac-develop
           event: s3:ObjectCreated:*
           rules:
             - prefix: uploads/
-            - sufix: .jpg
+            - suffix: .jpg
       - s3:
-          bucket: serverless
+          bucket: awsnode-iac-develop
           event: s3:ObjectCreated:*
           rules:
             - prefix: uploads/
-            - sufix: .png
+            - suffix: .png
