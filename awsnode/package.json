@@ -54,7 +54,8 @@
   "scripts": {
     "predeploy": "rm -rf node_modules/sharp && npm install --plataform=linux --arch=x64 --target=8.10.0 sharp",
     "deploy": "serverless deploy",
-    "postdeploy": "rm -rf node_modules/sharp && npm install sharp"
+    "postdeploy": "rm -rf node_modules/sharp && npm install sharp",
+    "remove": "serverless remove"
   },
   "keywords": [],
   "author": "",
